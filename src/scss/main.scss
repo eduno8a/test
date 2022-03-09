@@ -1,0 +1,22 @@
+@import './data';
+@import './c3';
+body{
+    background-color: $color3;
+    padding: 20px 5px;
+}
+.title1{
+    font-size: 34px;
+}
+.title2{
+    font-size: 24px;
+}
+.color4{
+    color: $color4;
+}
+.alignCenter{
+    text-align: center;
+}
+.spacePadding{
+    padding: 40px 0px;
+}
+
