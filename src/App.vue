@@ -1,10 +1,9 @@
 <template>
-  <div>
+  <div class="content">
     
     <a-row style="text-align:center;">
-      <h1 class="title1 color4">Tipo de cambio Peso Mexicano</h1>
+      <h1 class="title1 color4">Tipo de cambio a Pesos Mexicano </h1>
     </a-row>
-    
     
     <a-row class="spacePadding alignCenter">
       <h1 class="title2">Agregar fecha de consulta</h1>
@@ -13,8 +12,9 @@
         Consultar
       </a-button>
     </a-row>
-    
+
     <vue-c3 :handler="handler"></vue-c3>
+    <p>Gráfica de comparación</p>
     
     <a-row class="spacePadding"> 
       <a-col :sm="24" :md="12" :lg="6" v-for="(item, index) in arrayDate" :key="index*18" v-if="index>0">
@@ -25,7 +25,6 @@
         </a-card>
       </a-col>
     </a-row>
-      
 
   </div>
         
@@ -49,7 +48,14 @@ export default {
     historyRates: [],
     countryCoin: [["MXN"],["USD"],["CAD"],["EUR"],["JPY"],["CNY"]],
     arrayDate: ['x', ],
+    
   }),
+  mounted() {
+    this.handler.$emit('init', this.options)
+    this.getData(moment().add(-2, 'days').format('YYYY-MM-DD'));
+    this.getData(moment().add(-1, 'days').format('YYYY-MM-DD'));
+    this.getData(moment().format('YYYY-MM-DD'));
+  },
   methods: {
     onChange(date, dateString) {
       this.nDate = dateString;
@@ -76,6 +82,7 @@ export default {
         this.historyRates = result.data
            this.addDate(result.data)
       })
+      
     },
     disabledDate(current) {
       return current && current > moment().endOf('day');
@@ -131,18 +138,11 @@ export default {
       }
     }
   },
-  mounted(current) {
-    this.handler.$emit('init', this.options)
-    this.getData(moment().format('YYYY-MM-DD'));
-  },
-
   filters:{
     fecha: function(value){
-      return moment(value).format('DD-MM-YYYY')
-
+      return "Fecha: "+moment(value).format('DD-MM-YYYY')
     }
   }
 }
 </script>
 <style lang="scss">@import './scss/main.scss'</style>
-

@@ -1,18 +1,31 @@
-# gpomodelo
+# Grupo Modelo
+_Prueba practica Frontend Developer_
 
-> Prueba frontend
+##Resumen
+_Interfaz que muestre las tasas de cambio del peso frente a otras monedas_
 
-## Build Setup
+### Pre-requisitos 📋
+- node v16.14.1
+- Git
+- npm
 
-``` bash
-# install dependencies
+### Instalación 🔧
+```
+git clone https://github.com/eduno8a/test.git
+cd ./test
 npm install
+```
+### Compilar en modo desarrollo
+```
+npm run serve
+```
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
+### Compilar para producción
+```
 npm run build
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Construido con 🛠️
+
+* API fixer.io - tasas de cambio de divisas
+* Vue js - Framework
